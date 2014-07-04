@@ -48,7 +48,7 @@ namespace google { namespace protobuf { namespace compiler {namespace objectivec
     // hacky.  but this is how other generators determine if we're generating
     // the core ProtocolBuffers library
     if (file_->name() != "google/protobuf/descriptor.proto") {
-      printer->Print("#import <ProtocolBuffers/ProtocolBuffers.h>\n\n");
+      printer->Print("#import \"ProtocolBuffers.h\"\n\n");
     }
 
     if (file_->dependency_count() > 0) {
@@ -189,11 +189,7 @@ namespace google { namespace protobuf { namespace compiler {namespace objectivec
     }
 
     printer->Print(
-#ifdef OBJC_ARC
-      "extensionRegistry = registry;\n");
-#else
       "extensionRegistry = [registry retain];\n");
-#endif
 
     printer->Outdent();
     printer->Outdent();
