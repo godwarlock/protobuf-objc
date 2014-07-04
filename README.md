@@ -1,3 +1,5 @@
+本项目源自Booyah的protoc-objc库，修改后支持ARC，且编译后的proto文件不会有编译warning和error
+
 # Protocol Buffers, Objective C
 
 An implementation of Protocol Buffers in Objective C.
